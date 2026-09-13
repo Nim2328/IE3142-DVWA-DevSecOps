@@ -19,3 +19,16 @@ jobs:
 
       - name: Build Docker image
         run: docker compose build
+
+  sast:
+    name: SAST - Semgrep
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep SAST
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: p/php
