@@ -42,3 +42,21 @@ jobs:
             vulnerabilities/xss_r/source/low.php \
             vulnerabilities/exec/source/low.php \
             vulnerabilities/upload/source/low.php
+
+  sca:
+    name: SCA - Composer Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: Audit Composer dependencies
+        working-directory: vulnerabilities/api
+        run: composer audit --locked
