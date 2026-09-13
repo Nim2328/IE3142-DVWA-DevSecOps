@@ -27,3 +27,6 @@ semgrep-after-*.txt
 
 # Local secrets scanning report
 gitleaks-report.json
+
+# Local environment secrets
+.env
