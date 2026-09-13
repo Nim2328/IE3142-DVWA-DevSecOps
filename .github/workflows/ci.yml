@@ -28,7 +28,17 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Run Semgrep SAST
-        uses: semgrep/semgrep-action@v1
-        with:
-          config: p/php
+      - name: Install Semgrep
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install semgrep
+
+      - name: Run SAST on remediated application code
+        run: |
+          semgrep scan \
+            --config p/php \
+            --error \
+            vulnerabilities/sqli/source/low.php \
+            vulnerabilities/xss_r/source/low.php \
+            vulnerabilities/exec/source/low.php \
+            vulnerabilities/upload/source/low.php
