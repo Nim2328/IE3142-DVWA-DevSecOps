@@ -4,3 +4,6 @@
 **/Dockerfile*
 **/.dockerignore
 **/compose.yml
+
+# Local development environment
+**/.venv-sast
