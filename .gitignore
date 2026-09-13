@@ -16,3 +16,11 @@ tests/__pycache__/
 hackable/uploads/*
 .DS_Store
 .DS_Store
+
+# Local SAST environment and scan artifacts
+.venv-sast/
+semgrep-before.json
+semgrep-before.txt
+semgrep-after-*.json
+semgrep-after-*.txt
+*.bak
