@@ -24,3 +24,6 @@ semgrep-before.txt
 semgrep-after-*.json
 semgrep-after-*.txt
 *.bak
+
+# Local secrets scanning report
+gitleaks-report.json
